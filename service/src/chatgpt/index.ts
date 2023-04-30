@@ -100,6 +100,8 @@ async function chatReplyProcess(options: RequestOptions) {
         options = { ...lastContext }
     }
 
+    // eslint-disable-next-line no-console
+    console.log(`${now()}: ${message}`)
     const response = await api.sendMessage(message, {
       ...options,
       onProgress: (partialResponse) => {
@@ -166,6 +168,17 @@ function formatDate(): string[] {
   const formattedFirstDay = `${year}-${month.toString().padStart(2, '0')}-01`
   const formattedLastDay = `${year}-${month.toString().padStart(2, '0')}-${lastDay.getDate().toString().padStart(2, '0')}`
   return [formattedFirstDay, formattedLastDay]
+}
+
+function now(): string {
+  const today = new Date()
+  const year = today.getFullYear()
+  const month = today.getMonth() + 1
+  const date = today.getDate()
+  const hour = today.getHours()
+  const minute = today.getMinutes()
+  const second = today.getSeconds()
+  return (`${year}-${month}-${date} ${hour}:${minute}:${second}`)
 }
 
 async function chatConfig() {

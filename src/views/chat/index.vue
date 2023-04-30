@@ -9,7 +9,7 @@ import { Message } from './components'
 import { useScroll } from './hooks/useScroll'
 import { useChat } from './hooks/useChat'
 import { useUsingContext } from './hooks/useUsingContext'
-import HeaderComponent from './components/Header/index.vue'
+/* import HeaderComponent from './components/Header/index.vue' */
 import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
@@ -29,7 +29,7 @@ const chatStore = useChatStore()
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
-const { usingContext, toggleUsingContext } = useUsingContext()
+const { usingContext } = useUsingContext()
 
 const { uuid } = route.params as { uuid: string }
 
@@ -465,12 +465,12 @@ onUnmounted(() => {
 
 <template>
   <div class="flex flex-col w-full h-full">
-    <HeaderComponent
+    <!--    <HeaderComponent
       v-if="isMobile"
       :using-context="usingContext"
       @export="handleExport"
       @toggle-using-context="toggleUsingContext"
-    />
+    /> -->
     <main class="flex-1 overflow-hidden">
       <div id="scrollRef" ref="scrollRef" class="h-full overflow-hidden overflow-y-auto">
         <div
@@ -523,11 +523,11 @@ onUnmounted(() => {
               <SvgIcon icon="ri:download-2-line" />
             </span>
           </HoverButton>
-          <HoverButton v-if="!isMobile" @click="toggleUsingContext">
+          <!--          <HoverButton v-if="!isMobile" @click="toggleUsingContext">
             <span class="text-xl" :class="{ 'text-[#4b9e5f]': usingContext, 'text-[#a8071a]': !usingContext }">
               <SvgIcon icon="ri:chat-history-line" />
             </span>
-          </HoverButton>
+          </HoverButton> -->
           <NAutoComplete v-model:value="prompt" :options="searchOptions" :render-label="renderOption">
             <template #default="{ handleInput, handleBlur, handleFocus }">
               <NInput

@@ -1,16 +1,18 @@
 import { ss } from '@/utils/storage'
+import DefaultTemplate from '@/assets/defaultTemplate.json'
 
 const LOCAL_NAME = 'promptStore'
+const defaultTemplateList = DefaultTemplate
 
 export type PromptList = []
 
 export interface PromptStore {
-  promptList: PromptList
+  promptList: any
 }
 
 export function getLocalPromptList(): PromptStore {
   const promptStore: PromptStore | undefined = ss.get(LOCAL_NAME)
-  return promptStore ?? { promptList: [] }
+  return promptStore ?? { promptList: [...defaultTemplateList] }
 }
 
 export function setLocalPromptList(promptStore: PromptStore): void {
