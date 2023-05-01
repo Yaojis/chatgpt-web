@@ -142,11 +142,6 @@ const deletePromptTemplate = (row: { key: string; value: string }) => {
   message.success(t('common.deleteSuccess'))
 }
 
-const clearPromptTemplate = () => {
-  promptList.value = []
-  message.success(t('common.clearSuccess'))
-}
-
 const importPromptTemplate = (from = 'online') => {
   try {
     const jsonData = JSON.parse(tempPromptValue.value)
