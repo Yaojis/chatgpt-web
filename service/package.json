@@ -1,13 +1,10 @@
 {
-  "name": "chatgpt-web-service",
+  "name": "web-service",
   "version": "1.0.0",
   "private": false,
-  "description": "ChatGPT Web Service",
+  "description": "Web Service",
   "author": "ChenZhaoYu <chenzhaoyu1994@gmail.com>",
   "keywords": [
-    "chatgpt-web",
-    "chatgpt",
-    "chatbot",
     "express"
   ],
   "engines": {
