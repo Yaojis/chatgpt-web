@@ -79,9 +79,6 @@ const changeShowModal = (mode: 'add' | 'modify' | 'local_import', selected = { k
 // 在线导入相关
 const downloadURL = ref('')
 const downloadDisabled = computed(() => downloadURL.value.trim().length < 1)
-const setDownloadURL = (url: string) => {
-  downloadURL.value = url
-}
 
 // 控制 input 按钮
 const inputStatus = computed (() => tempPromptKey.value.trim().length < 1 || tempPromptValue.value.trim().length < 1)
