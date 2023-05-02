@@ -1,17 +1,12 @@
 {
+	"version": 2,
 	"buildCommand": "pnpm build",
 	"installCommand": "pnpm install",
 	"outputDirectory": "build",
 	"builds": [
-		{
-			"src": "./build/index.mjs",
-			"use": "@vercel/node"
-		}
+		{ "src": "package.json", "use": "@vercel/node" }
 	],
 	"routes": [
-		{
-			"src": "/api/(.*)",
-			"dest": "/api/$1"
-		}
+		{ "src": "/(.*)", "dest": "start" }
 	]
 }
