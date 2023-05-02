@@ -4,9 +4,15 @@
 	"installCommand": "pnpm install",
 	"outputDirectory": "build",
 	"builds": [
-		{ "src": "package.json", "use": "@vercel/node" }
+		{
+			"src": "package.json",
+			"use": "@vercel/node"
+		}
 	],
 	"routes": [
-		{ "src": "/(.*)", "dest": "start" }
+		{
+			"src": "/api/(.*)",
+			"dest": "/api/$1"
+		}
 	]
 }
