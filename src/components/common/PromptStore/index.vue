@@ -1,9 +1,7 @@
 <script setup lang='ts'>
 import type { DataTableColumns } from 'naive-ui'
 import { computed, h, ref, watch } from 'vue'
-import { NButton, NCard, NDataTable, NDivider, NInput, NList, NListItem, NModal, NSpace, NTabPane, NTabs, NThing, useMessage } from 'naive-ui'
-import PromptRecommend from '../../../assets/recommend.json'
-import { SvgIcon } from '..'
+import { NButton, NDataTable, NDivider, NInput, NList, NListItem, NModal, NSpace, NTabPane, NTabs, NThing, useMessage } from 'naive-ui'
 import { usePromptStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { t } from '@/locales'
@@ -47,7 +45,6 @@ const { isMobile } = useBasicLayout()
 const promptStore = usePromptStore()
 
 // Prompt在线导入推荐List,根据部署者喜好进行修改(assets/recommend.json)
-const promptRecommendList = PromptRecommend
 const promptList = ref<any>(promptStore.promptList)
 
 // 用于添加修改的临时prompt参数
@@ -405,36 +402,6 @@ const dataSource = computed(() => {
             </NButton>
           </div>
           <NDivider />
-          <div class="max-h-[360px] overflow-y-auto space-y-4">
-            <NCard
-              v-for="info in promptRecommendList"
-              :key="info.key" :title="info.key"
-              :bordered="true"
-              embedded
-            >
-              <p
-                class="overflow-hidden text-ellipsis whitespace-nowrap"
-                :title="info.desc"
-              >
-                {{ info.desc }}
-              </p>
-              <template #footer>
-                <div class="flex items-center justify-end space-x-4">
-                  <NButton text>
-                    <a
-                      :href="info.url"
-                      target="_blank"
-                    >
-                      <SvgIcon class="text-xl" icon="ri:link" />
-                    </a>
-                  </NButton>
-                  <NButton text @click="setDownloadURL(info.downloadUrl) ">
-                    <SvgIcon class="text-xl" icon="ri:add-fill" />
-                  </NButton>
-                </div>
-              </template>
-            </NCard>
-          </div>
         </NTabPane>
       </NTabs>
     </div>
