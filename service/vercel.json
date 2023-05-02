@@ -1,6 +1,6 @@
 {
 	"version": 2,
-	"installCommand": "pnpm install",
+	"installCommand": "pnpm install && pnpm clean && tsup",
 	"outputDirectory": "build",
 	"builds": [
 		{
