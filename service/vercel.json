@@ -5,14 +5,14 @@
 	"outputDirectory": "build",
 	"builds": [
 		{
-			"src": "./build/index.mjs",
+			"src": "./src/index.ts",
 			"use": "@vercel/node"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/build/index.mjs"
+			"dest": "/src/"
 		}
 	]
 }
