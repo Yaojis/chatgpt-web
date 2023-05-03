@@ -5,7 +5,7 @@
 	"outputDirectory": "build",
 	"builds": [
 		{
-			"src": "./build/index.mjs",
+			"src": "./src/index.ts",
 			"use": "@vercel/node"
 		}
 	],
